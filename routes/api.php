@@ -24,23 +24,18 @@ use Illuminate\Support\Facades\Route;
 Route::controller(AuthController::class)->name('v1.')->group(function () {
     Route::post('/login', 'login')->name('login');
     Route::post('/register', 'register')->name('register');
-
-    Route::controller(CourseController::class)->prefix('courses')->group(function () {
-        Route::get('/', 'index')->name('get');
-        Route::get('/search', 'searchCourses')->name('search');
-        Route::get('/search-categories', 'searchCategories')->name('search-category');
-        Route::get('/{course}/details', 'getCourseDetails')->name('details');
-        Route::post('/{course}/apply-coupon', 'applyCoupon')->name('apply-coupon');
-
-    });
-
 });
-
-
-
 
 
 Route::middleware('auth:sanctum')->name('v1.')->group(function () {
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
-//    Route::get('user', [UserController::class, 'getUser'])->name('user.info');
+
+    Route::controller(CourseController::class)->prefix('courses')->group(function () {
+        Route::get('/', 'index')->name('get');
+        Route::get('/{course}/details', 'getCourseDetails')->name('details');
+        Route::get('/search', 'searchCourses')->name('search');
+        Route::get('/search-categories', 'searchCategories')->name('search-category');
+        Route::post('/{course}/apply-coupon', 'applyCoupon')->name('apply-coupon');
+    });
+
 });
