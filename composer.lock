@@ -1604,12 +1604,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Manjurulislam/coupon-package.git",
-                "reference": "620df0aea4a7831ec1d109b56437cd0dcc2ffc88"
+                "reference": "4d04d30e2a1f4fde50db7db84cbdd5e37ced1ecb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Manjurulislam/coupon-package/zipball/620df0aea4a7831ec1d109b56437cd0dcc2ffc88",
-                "reference": "620df0aea4a7831ec1d109b56437cd0dcc2ffc88",
+                "url": "https://api.github.com/repos/Manjurulislam/coupon-package/zipball/4d04d30e2a1f4fde50db7db84cbdd5e37ced1ecb",
+                "reference": "4d04d30e2a1f4fde50db7db84cbdd5e37ced1ecb",
                 "shasum": ""
             },
             "require": {
@@ -1622,7 +1622,10 @@
                 "laravel": {
                     "providers": [
                         "Manjurulislam\\Coupon\\CouponServiceProvider"
-                    ]
+                    ],
+                    "aliases": {
+                        "Coupon": "Manjurulislam\\Coupon\\Facades\\Coupon"
+                    }
                 }
             },
             "autoload": {
@@ -1645,7 +1648,7 @@
                 "issues": "https://github.com/Manjurulislam/coupon-package/issues",
                 "source": "https://github.com/Manjurulislam/coupon-package/tree/main"
             },
-            "time": "2022-07-02T19:18:54+00:00"
+            "time": "2022-07-04T21:15:04+00:00"
         },
         {
             "name": "monolog/monolog",

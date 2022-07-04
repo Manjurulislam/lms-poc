@@ -32,9 +32,9 @@ Route::middleware('auth:sanctum')->name('v1.')->group(function () {
 
     Route::controller(CourseController::class)->prefix('courses')->group(function () {
         Route::get('/', 'index')->name('get');
-        Route::get('/{course}/details', 'getCourseDetails')->name('details');
-        Route::get('/search', 'searchCourses')->name('search');
-        Route::get('/search-categories', 'searchCategories')->name('search-category');
+        Route::get('/get', 'getCourses')->name('get');
+        Route::get('/categories', 'getCategories')->name('categories');
+        Route::get('/{course}/details', 'details')->name('details');
         Route::post('/{course}/apply-coupon', 'applyCoupon')->name('apply-coupon');
     });
 
