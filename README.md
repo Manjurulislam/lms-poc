@@ -7,7 +7,8 @@
 - - - -
 * `composer install`
 * Run migration create tables `php artisan migration`
-* Then run seeder create user, course and course category 'php artisan db:seed`
+* Then run seeder create user, course and course category `php artisan db:seed`
+* Api route prefix V1
 
 ## Postman Api Doc
 - - - -
