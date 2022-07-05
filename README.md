@@ -2,3 +2,13 @@
 
 ## LMS POC coupon management 
 
+
+## Installation
+- - - -
+* `composer install`
+* Run migration create tables `php artisan migration`
+* Then run seeder create user, course and course category 'php artisan db:seed`
+
+## Postman Api Doc
+- - - -
+* https://documenter.getpostman.com/view/4557597/UzJHQd1r
