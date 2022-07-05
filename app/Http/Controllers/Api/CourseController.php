@@ -46,8 +46,19 @@ class CourseController extends Controller
         }
     }
 
-    public function applyCoupon()
+    public function applyCoupon($courseId, Request $request)
     {
+        if (blank($course = Course::find($courseId))) {
+            return ApiResponse::error('Course not found');
+        }
+
+        [$validCoupon, $responseData, $errorMessage] = $this->courseService->validateCoupon($request, $course);
+
+        if ($validCoupon) {
+            return ApiResponse::success($responseData, 'Coupon applied');
+        } else {
+            return ApiResponse::error($errorMessage);
+        }
 
     }
 

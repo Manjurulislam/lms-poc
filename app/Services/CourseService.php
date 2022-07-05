@@ -4,7 +4,10 @@ namespace App\Services;
 
 use App\Models\Course;
 use App\Models\CourseCategory;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Manjurulislam\Coupon\Facades\Coupon;
+
 
 class CourseService
 {
@@ -64,5 +67,28 @@ class CourseService
         })->toArray();
     }
 
+
+    public function validateCoupon(Request $request, Course $course): array
+    {
+        if (blank($couponCode = $request->get('coupon_code'))) {
+            return [false, [], 'Coupon code is required'];
+        }
+
+        if (blank($coupon = Coupon::getCouponByCode($couponCode))) {
+            return [false, [], 'Invalid Coupon Code'];
+        }
+
+        if ($coupon->expire_date < Carbon::now()) {
+            return [false, [], 'Coupon is already expired.'];
+        }
+
+        $validProduct = Coupon::applyCouponToProduct($coupon, $course->id);
+
+        if (!$validProduct) {
+            return [false, [], 'Coupon is not valid for this product'];
+        } else {
+            return [true, $validProduct, 'Coupon is already expired.'];
+        }
+    }
 
 }

@@ -1604,12 +1604,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Manjurulislam/coupon-package.git",
-                "reference": "4d04d30e2a1f4fde50db7db84cbdd5e37ced1ecb"
+                "reference": "3fecc1a4a103d78858eadd4f01ea0e096a52c5cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Manjurulislam/coupon-package/zipball/4d04d30e2a1f4fde50db7db84cbdd5e37ced1ecb",
-                "reference": "4d04d30e2a1f4fde50db7db84cbdd5e37ced1ecb",
+                "url": "https://api.github.com/repos/Manjurulislam/coupon-package/zipball/3fecc1a4a103d78858eadd4f01ea0e096a52c5cf",
+                "reference": "3fecc1a4a103d78858eadd4f01ea0e096a52c5cf",
                 "shasum": ""
             },
             "require": {
@@ -1648,7 +1648,7 @@
                 "issues": "https://github.com/Manjurulislam/coupon-package/issues",
                 "source": "https://github.com/Manjurulislam/coupon-package/tree/main"
             },
-            "time": "2022-07-04T21:15:04+00:00"
+            "time": "2022-07-05T04:02:20+00:00"
         },
         {
             "name": "monolog/monolog",
