@@ -15,7 +15,8 @@ class CourseService
     public function courseList(Request $request)
     {
         $keyword = $request->get('keyword');
-        $query   = Course::query()->with('category');
+        $row     = $request->get('rows', 20);
+        $query   = Course::with('category');
 
         if (!blank($keyword)) {
             $query->where('title', 'like', '%' . $keyword . '%')
@@ -23,15 +24,14 @@ class CourseService
                     $q->where('name', 'like', '%' . $keyword . '%');
                 });
         }
-        return $query->latest()->paginate($request->get('rows', 20));
+        return $query->latest()->paginate($row);
     }
-
 
 
     public function courses(Request $request): array
     {
         $keyword = $request->get('keyword');
-        $query = Course::query()->with('category');
+        $query   = Course::with('category');
 
         if (!blank($keyword)) {
             $query->where('title', 'like', '%' . $keyword . '%')
@@ -53,7 +53,7 @@ class CourseService
     public function getCourseCategory(Request $request): array
     {
         $keyword = $request->get('keyword');
-        $query = CourseCategory::query();
+        $query   = CourseCategory::query();
 
         if (!blank($keyword)) {
             $query->where('name', 'like', '%' . $keyword . '%');

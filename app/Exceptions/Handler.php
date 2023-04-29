@@ -3,7 +3,9 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\Log;
 use Throwable;
+use Illuminate\Http\Request;
 
 class Handler extends ExceptionHandler
 {
@@ -41,10 +43,15 @@ class Handler extends ExceptionHandler
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
-        $this->reportable(function (Throwable $e) {
-            //
+        $this->reportable(function (Throwable $e, Request $request) {
+            if ($request->is('api/*')) {
+                Log::error('Server Error ', [$e]);
+                return response()->json([
+                    'message' => $e->getMessage() ? $e->getMessage() : 'Server error',
+                ], $e->getCode());
+            }
         });
     }
 }
